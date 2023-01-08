@@ -1,6 +1,6 @@
 pip install flask_ngrok pyngrok==4.1.1 shap catboost
-import app
-from app import *
+import app_needs
+from app_needs import *
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 
@@ -14,8 +14,6 @@ import pandas as pd
 import numpy as np
 
 app = Flask(__name__)
-run_with_ngrok(app) 
-!ngrok authtoken 2K0BkEN4ZXv1d1k1cA4CpjHYgfh_bx2xartjkoDdT4UqfPzL
 
 @app.route("/", methods=["GET", "POST"])
 def upload_file():
