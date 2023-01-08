@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>File Upload</title>
+  </head>
+  <body>
+    <h1>Upload Files</h1>
+    <form method="post" enctype="multipart/form-data">
+      <div id="dropzone" style="border: 1px solid #ccc; width: 300px; height: 200px; text-align: center; line-height: 200px;" draggable="true" ondragover="return false" ondrop="drop(event)">
+        Drop historical files
+      </div>
+      <input type="file" id="file-input" name="file1" accept=".csv, .txt,.xls, .xlsx" multiple style="display: none;">
+      <input type="submit" value="Upload" style="display: none;">
+    </form>
+
+  </body>
+  <script>
+    function drop(event) {
+      event.preventDefault();
+      var files = event.dataTransfer.files;
+      for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        console.log(file.name);
+      }
+      document.getElementById("file-input").files = files;
+      document.getElementById("dropzone").style.display = "none";
+      document.getElementById("file-input").style.display = "block";
+      document.querySelector("input[type='submit']").style.display = "block";
+    }
+  </script>
+</html>
