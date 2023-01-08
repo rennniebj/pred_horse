@@ -1,4 +1,3 @@
-pip install flask_ngrok pyngrok==4.1.1 shap catboost
 import app_needs
 from app_needs import *
 from sklearn.ensemble import RandomForestClassifier
